@@ -1,4 +1,4 @@
-require('dotenv').config() // Load environment variables from .env file
+
 'use strict'
 
 const path = require('path')
