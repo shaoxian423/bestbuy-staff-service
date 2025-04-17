@@ -28,3 +28,5 @@ This is a simple, cloud-native microservice designed for Best Buy's internal sys
   "email": "john.doe@bestbuy.com",
   "phone": "123-456-7890"
 }
+
+Shaoxian Duan
