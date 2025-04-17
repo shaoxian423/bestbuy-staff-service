@@ -55,4 +55,4 @@ jobs:
         run: echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > kubeconfig
 
       - name: Deploy to AKS
-        run: kubectl --kubeconfig=kubeconfig apply -f "Deployment file/staff-service.yaml"gi 
+        run: kubectl --kubeconfig=kubeconfig apply -f "Deployment file/staff-service.yaml"
