@@ -12,7 +12,26 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print build info
+        run: echo "Build stage complete - code checked out"
+
+  test:
+    name: Test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run basic container test
+        run: echo "✅ Test passed - simulated success"
+
+  release:
+    name: Release
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Log in to Docker Hub
@@ -21,19 +40,6 @@ jobs:
       - name: Build Docker Image
         run: docker build -t $IMAGE_NAME .
 
-  test:
-    name: Test
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run basic container test
-        run: echo "✅ Test passed - container builds successfully."  # maybe replaced with actual test commands
-
-  release:
-    name: Release
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
       - name: Push Docker Image
         run: docker push $IMAGE_NAME
 
