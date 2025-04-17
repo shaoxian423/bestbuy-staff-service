@@ -1,28 +1,23 @@
 {
-  "name": "order-service",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with Fastify-CLI.",
+  "name": "bestbuy-staff-service",
+  "version": "0.1.0",
+  "description": "A simple cloud-native microservice for managing Best Buy staff information",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"No tests available\"",
-    "start": "fastify start -l info app.js",
-    "dev": "fastify start -w -l info -P app.js"
+    "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "BestBuy",
+    "Staff",
+    "Microservice",
+    "Node.js",
+    "Express",
+    "CRUD",
+    "12-factor"
+  ],
+  "author": "Shaoxian Duan",
+  "license": "MIT",
   "dependencies": {
-    "@azure/identity": "^4.2.1",
-    "@azure/service-bus": "^7.9.4",
-    "@fastify/autoload": "^5.0.0",
-    "@fastify/cors": "^8.3.0",
-    "@fastify/sensible": "^4.1.0",
-    "fastify": "^4.0.0",
-    "fastify-cli": "^4.4.0",
-    "fastify-plugin": "^3.0.0",
-    "rhea": "^3.0.2"
-  },
-  "devDependencies": {
-    "tap": "^16.1.0"
+    "express": "^4.18.2"
   }
 }

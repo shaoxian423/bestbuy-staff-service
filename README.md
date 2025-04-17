@@ -1,25 +1,30 @@
-# BestBuy Staff-Service
+# 🧑‍💼 BestBuy Staff-Service
 
-## 💡 Introduction
-A cloud-native microservice that provides RESTful CRUD operations to manage staff data for Best Buy's internal system.
+## 📌 Project Overview
+
+This is a simple, cloud-native microservice designed for Best Buy's internal system to manage **staff information**. It provides **REST APIs** to perform **CRUD operations**, and stores staff data **in-memory** (no database required). The app is designed following the **12-Factor App principles** and is fully containerized and deployed to **Azure Kubernetes Service (AKS)** with a working **CI/CD pipeline** using **GitHub Actions**.
+
+---
 
 ## 📦 Features
-- In-memory data store
-- REST API for CRUD operations
-- Docker containerized
-- CI/CD via GitHub Actions
-- Deployed to Azure AKS
 
-## 🚀 API Endpoints
-| Method | Endpoint         | Description        |
-|--------|------------------|--------------------|
-| POST   | /staff           | Create a staff     |
-| GET    | /staff           | Get all staff      |
-| GET    | /staff/:id       | Get staff by ID    |
-| PUT    | /staff/:id       | Update staff       |
-| DELETE | /staff/:id       | Delete staff       |
+- Create, Read, Update, and Delete staff records
+- In-memory storage for simplicity
+- 100% stateless and containerized
+- CI/CD pipeline with GitHub Actions
+- Deployed to AKS with LoadBalancer
+- Easy to test via Postman or curl
 
-## 🛠️ How to Run
-```bash
-npm install
-PORT=3000 node index.js
+---
+
+## 📑 Staff Data Structure
+
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "position": "Sales Manager",
+  "department": "Electronics",
+  "email": "john.doe@bestbuy.com",
+  "phone": "123-456-7890"
+}
