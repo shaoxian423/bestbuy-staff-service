@@ -1,26 +1,24 @@
-# Use an official Node.js runtime as a parent image
-FROM node:18.20.4-alpine AS builder
+# Use official Node.js image (LTS version, small footprint)
+FROM node:18-alpine
 
-# Set the working directory to /app
+# Set working directory in container
 WORKDIR /app
 
-# Set the build argument for the app version number
-ARG APP_VERSION=0.1.0
-
-# Copy package.json and package-lock.json to the container
+# Copy dependency descriptor files first (layer caching optimization)
 COPY package*.json ./
 
-# Install app dependencies
+# Install production dependencies only
 RUN npm install --production
 
-# Copy the rest of the app source code to the container
+# Copy source code into container
 COPY . .
 
-# Expose the port the app listens on
+# Set environment variables (12-factor principle)
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Expose port (used by Kubernetes or Docker run -p)
 EXPOSE 3000
 
-# Set the environment variable for the app version number
-ENV APP_VERSION=$APP_VERSION
-
-# Start the app
-CMD [ "npm", "start" ]
+# Command to run the app (entry point)
+CMD ["node", "app.js"]
